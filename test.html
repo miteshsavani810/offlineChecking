@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+    const browserLoad = () =>{
+        console.log('browser load detected');
+        setInterval(()=>{
+            fetch('https://zimbra-app.netlify.com')
+            .then(res => {
+                document.getElementById('status').textContent = 'Online';
+            })
+            .catch(error => {
+                console.log('Fetch catch problem ', error);
+                document.getElementById('status').textContent = 'Offline';
+            })
+        },3000);
+    }
+window.onload = browserLoad;
+</script>
+</head>
+
+<body>
+
+<h1>Testing Offlie feature</h1>
+
+<span>Status:</span> <span id="status"></span>
+
+</body>
+</html>
